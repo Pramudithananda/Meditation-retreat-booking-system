@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meditation Retreat Booking</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="language-selector">
+        <button class="language-btn active" onclick="changeLanguage('si')">&#3523;&#3538;&#3458;&#3524;&#3517;</button>
+        <button class="language-btn" onclick="changeLanguage('en')">English</button>
+    </div>
+
+    <div class="container">
+        <h1 id="title">Meditation Retreat Booking</h1>
+        
+        <form id="bookingForm" method="POST">
+            <div class="form-group">
+                <label id="nameLabel">Full Name:</label>
+                <input type="text" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label id="ageLabel">Age:</label>
+                <input type="number" name="age" required min="18" max="100">
+            </div>
+
+            <div class="form-group">
+                <label id="experienceLabel">Experience Level:</label>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="experience" value="beginner" required>
+                        <span id="beginnerLabel">Beginner</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="experience" value="experienced">
+                        <span id="experiencedLabel">Experienced</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label id="statusLabel">Status:</label>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="status" value="bikkhu" required>
+                        <span id="bikkhuLabel">Bikkhu</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="status" value="nun">
+                        <span id="nunLabel">Nun</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="status" value="male">
+                        <span id="maleLabel">Male</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="status" value="female">
+                        <span id="femaleLabel">Female</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label id="addressLabel">Address:</label>
+                <div class="address-container">
+                    <div class="address-row">
+                        <div class="address-field">
+                            <label id="districtLabel">District:</label>
+                            <select id="district" name="district" required onchange="updateDivisions()">
+                                <option value="">Select District</option>
+                            </select>
+                        </div>
+                        <div class="address-field">
+                            <label id="divisionLabel">Division:</label>
+                            <select id="division" name="division" required>
+                                <option value="">Select Division</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="address-field">
+                        <label id="detailAddressLabel">Detailed Address:</label>
+                        <textarea name="detail_address" rows="2" required></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label id="phoneLabel">Telephone:</label>
+                <input type="tel" name="telephone" required pattern="[0-9]{10}">
+            </div>
+
+            <div class="form-group">
+                <label id="timePeriodsLabel">Select Time Period(s):</label>
+                <div class="time-slots"></div>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="submit-btn" id="submitBtn">Book Now</button>
+            </div>
+        </form>
+    </div>
+   
+    <script src="script-js.js"></script>
+</body>
+</html>
